@@ -1,7 +1,7 @@
 ---
 title: "Your A4 Report Title (TODO: Revise title)"
-author: "Your Name"
-date: '2022-11-01'
+author: "Niranjanaa"
+date: '2022-11-19'
 output: html_document
 ---
 
@@ -10,22 +10,23 @@ source("../source/a4-helpers.R")
 source("../source/analysis.R")
 ```
 
-## Abstract 
+## Abstract
+
 [TODO: Include a short abstract (about 50 words)]
 
 # Test (TODO: Remove before submission!!)
+
 ```{r echo=FALSE}
 q1_string <- test_query1()
 num <- 5
 ```
+
 As you know, this is a markdown report. The [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) is **useful!**
 
-* Here's a test of a dynamic variable. Say **"`r q1_string`!!!** 
-* Here's another test. A vector
-of numbers: `r test_query2(num)`.
+-   Here's a test of a dynamic variable. Say **"`r q1_string`!!!**
+-   Here's another test. A vector of numbers: `r test_query2(num)`.
 
-Recall that _{r echo=TRUE}_ can be used to display the code, 
-which is very useful when developing and debugging a report. Here's an example: 
+Recall that *{r echo=TRUE}* can be used to display the code, which is very useful when developing and debugging a report. Here's an example:
 
 ```{r echo=TRUE}
 num <- 5
@@ -33,13 +34,13 @@ sum <- sum(test_query2(num))
 print(sum)
 ```
 
-## Introduction 
-[TODO]
+## Introduction of Data Set 
+ 
+The United States has an imminent and long-standing issue with mass incarceration, specifically in relation to the incarceration of people of color, immigrants, economically disadvantaged, and several other historically marginalized groups of people. Vera is an organization made up of advocates, researchers, and activists who collect and compile data at from the county to national level in order to analyze trends in incarceration numbers, whether that is by geography or specific parts of incarcerated individuals' identity. This data was compiled to draw reasonable conclusions on incarcerated individuals, in order to develop just and fair solutions for mass incarceration. Vera determines places and people most affected and creates pilot programs (ex. providing college education) for those who were incarcerated and helps develop and new life for them. The data also shines light on the racial and economic disparities that disproportionately affect certain groups of people, and brings data-driven awareness to the issue. The overarching principles of Vera is to use this data to create change in legal and criminal systems across the country, essentially drawing upon the ideas that the authors of Data Feminism to use data to create social and political change for humanity. The direct stakeholders include those who are in Vera, working towards viable solutions, as well as the citizens of America. The indirect stakeholders include incarcerated people who may benefit from potential solutions as well as law makers and those in positions of power, to become aware of trends in incarceration and use that to make social and political change. 
 
-## Data Summary 
-[TODO]
+## Summary of Data Set
+The data set aggregates the data by gender, race, geography, jail vs prison, and several other components. Two components I am choosing to focus on are incarceration data variance between male and female, as well as variance by state (I choose to focus on Washington, California, and Florida to give regional variance.) In the given year 2018 in Washington State, the number of incarcerated males was 10377.00 in comparison to females with 2012.01. In the given year 2018 in New York, the number of male incarcerations was 21108.00 while the number of female incarcerations was 2247. And finally in the given year 2018 in Florida, the number of male incarcerations was 46840.0 while the number of female incarcerations was 8613.00. This shows a general trend that in the given year 2018, there is a higher number of male incarcerations than female. The population of Washington state in 2018 was 7.27 million; therefore, the rate of male incarcerations is 0.14% compared to 0.03% in females. The population of New York in 2018 was 19.54 million; therefore the rate of male incarcerations is 0.11% compared to 0.01% in females. Finally, the population of Florida in 2018 was 21.25 million; therefore the rate of male incarcerations is 0.22% compared to 0.04% in females. This points to systematic differences in rates of incarceration: the rate is higher in males across the three states; and the state with the highest rate in male incarcerations is Florida while th state with the highest female incarcerations is Washington. 
 
 [TODO ... other sections ... See Canvas for details]
 
-_All the very best with your work!_
-
+*All the very best with your work!*

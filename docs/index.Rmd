@@ -5,14 +5,14 @@ date: '2022-11-19'
 output: html_document
 ---
 
-```{r echo=FALSE, eval=TRUE, message=FALSE}
+```{r echo=TRUE, eval=TRUE, message=FALSE}
 source("../source/a4-helpers.R")
 source("../source/analysis.R")
 ```
 
 ## Abstract
 
-[TODO: Include a short abstract (about 50 words)]
+The following data analyzes incarceration data from 1970 to 2018, collected and compiled by Vera to bring light to the historical and systemic incarceration of certain groups of people. Some fo the most politically bipartisan issues today pertain to the war on drugs, increase in xenophobia, and over-policing, and this data provides statistical value to these issues. It is empirical to acknowledge how incarceration has not only worsened over time, but disproportionately affects some groups of people over others.
 
 # Test (TODO: Remove before submission!!)
 
@@ -21,26 +21,120 @@ q1_string <- test_query1()
 num <- 5
 ```
 
-As you know, this is a markdown report. The [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) is **useful!**
 
--   Here's a test of a dynamic variable. Say **"`r q1_string`!!!**
--   Here's another test. A vector of numbers: `r test_query2(num)`.
+## Introduction of Data Set
 
-Recall that *{r echo=TRUE}* can be used to display the code, which is very useful when developing and debugging a report. Here's an example:
-
-```{r echo=TRUE}
-num <- 5
-sum <- sum(test_query2(num))
-print(sum)
-```
-
-## Introduction of Data Set 
- 
-The United States has an imminent and long-standing issue with mass incarceration, specifically in relation to the incarceration of people of color, immigrants, economically disadvantaged, and several other historically marginalized groups of people. Vera is an organization made up of advocates, researchers, and activists who collect and compile data at from the county to national level in order to analyze trends in incarceration numbers, whether that is by geography or specific parts of incarcerated individuals' identity. This data was compiled to draw reasonable conclusions on incarcerated individuals, in order to develop just and fair solutions for mass incarceration. Vera determines places and people most affected and creates pilot programs (ex. providing college education) for those who were incarcerated and helps develop and new life for them. The data also shines light on the racial and economic disparities that disproportionately affect certain groups of people, and brings data-driven awareness to the issue. The overarching principles of Vera is to use this data to create change in legal and criminal systems across the country, essentially drawing upon the ideas that the authors of Data Feminism to use data to create social and political change for humanity. The direct stakeholders include those who are in Vera, working towards viable solutions, as well as the citizens of America. The indirect stakeholders include incarcerated people who may benefit from potential solutions as well as law makers and those in positions of power, to become aware of trends in incarceration and use that to make social and political change. 
+The United States has an imminent and long-standing issue with mass incarceration, specifically in relation to the incarceration of people of color, immigrants, economically disadvantaged, and several other historically marginalized groups of people. Vera is an organization made up of advocates, researchers, and activists who collect and compile data at from the county to national level in order to analyze trends in incarceration numbers, whether that is by geography or specific parts of incarcerated individuals' identity. This data was compiled to draw reasonable conclusions on incarcerated individuals, in order to develop just and fair solutions for mass incarceration. Vera determines places and people most affected and creates pilot programs (ex. providing college education) for those who were incarcerated and helps develop and new life for them. The data also shines light on the racial and economic disparities that disproportionately affect certain groups of people, and brings data-driven awareness to the issue. The overarching principles of Vera is to use this data to create change in legal and criminal systems across the country, essentially drawing upon the ideas that the authors of Data Feminism to use data to create social and political change for humanity. The direct stakeholders include those who are in Vera, working towards viable solutions, as well as the citizens of America. The indirect stakeholders include incarcerated people who may benefit from potential solutions as well as law makers and those in positions of power, to become aware of trends in incarceration and use that to make social and political change.
 
 ## Summary of Data Set
-The data set aggregates the data by gender, race, geography, jail vs prison, and several other components. Two components I am choosing to focus on are incarceration data variance between male and female, as well as variance by state (I choose to focus on Washington, California, and Florida to give regional variance.) In the given year 2018 in Washington State, the number of incarcerated males was 10377.00 in comparison to females with 2012.01. In the given year 2018 in New York, the number of male incarcerations was 21108.00 while the number of female incarcerations was 2247. And finally in the given year 2018 in Florida, the number of male incarcerations was 46840.0 while the number of female incarcerations was 8613.00. This shows a general trend that in the given year 2018, there is a higher number of male incarcerations than female. The population of Washington state in 2018 was 7.27 million; therefore, the rate of male incarcerations is 0.14% compared to 0.03% in females. The population of New York in 2018 was 19.54 million; therefore the rate of male incarcerations is 0.11% compared to 0.01% in females. Finally, the population of Florida in 2018 was 21.25 million; therefore the rate of male incarcerations is 0.22% compared to 0.04% in females. This points to systematic differences in rates of incarceration: the rate is higher in males across the three states; and the state with the highest rate in male incarcerations is Florida while th state with the highest female incarcerations is Washington. 
 
-[TODO ... other sections ... See Canvas for details]
+The data set aggregates the data by gender, race, geography, jail vs prison, and several other components. Two components I am choosing to focus on are incarceration data variance between male and female, as well as variance by state (I choose to focus on Washington, California, and Florida to give regional variance.) In the given year 2018 in Washington State, the number of incarcerated males was 10377.00 in comparison to females with 2012.01. In the given year 2018 in New York, the number of male incarcerations was 21108.00 while the number of female incarcerations was 2247. And finally in the given year 2018 in Florida, the number of male incarcerations was 46840.0 while the number of female incarcerations was 8613.00. This shows a general trend that in the given year 2018, there is a higher number of male incarcerations than female. The population of Washington state in 2018 was 7.27 million; therefore, the rate of male incarcerations is 0.14% compared to 0.03% in females. The population of New York in 2018 was 19.54 million; therefore the rate of male incarcerations is 0.11% compared to 0.01% in females. Finally, the population of Florida in 2018 was 21.25 million; therefore the rate of male incarcerations is 0.22% compared to 0.04% in females. This points to systematic differences in rates of incarceration: the rate is higher in males across the three states; and the state with the highest rate in male incarcerations is Florida while th state with the highest female incarcerations is Washington. The following variables helped me analyze male versus female populations in prisons across a few different states.
 
-*All the very best with your work!*
+```{r echo = TRUE, eval = TRUE}
+# What is the total number of incarcerations in Washington State by year? 
+wa_incarcerations <- incarceration_data %>%
+  group_by(year, state) %>%
+  filter(state == "WA") %>%
+  summarize(sum(total_jail_pop_rate), na.rm = TRUE)
+View(wa_incarcerations)
+
+# What are the female incarcerations in Washington by year? 
+wa_female_incarcerations <- incarceration_data %>%
+  group_by(year, state) %>%
+  filter(state == "WA") %>%
+  summarize(sum(female_jail_pop), na.rm = TRUE)
+  View(wa_female_incarcerations)
+  
+# What are the male incarcerations in Washington State by year? 
+wa_male_incarcerations <- incarceration_data %>%
+  group_by(year, state) %>%
+  filter(state == "WA") %>%
+  summarize(sum(male_jail_pop), na.rm = TRUE)
+  View(wa_male_incarcerations)
+  
+# What is the number of female incarcerations in Florida by year? 
+  fl_female_incarcerations <- incarceration_data %>%
+  group_by(year, state) %>%
+  filter(state == "FL") %>%
+  summarize(sum(female_jail_pop), na.rm = TRUE)
+  View(fl_female_incarcerations)
+  
+# What is the number of male incarcerations in Florida by year?
+fl_male_incarcerations <- incarceration_data %>%
+  group_by(year, state) %>%
+  filter(state == "FL") %>%
+  summarize(sum(male_jail_pop), na.rm = TRUE)
+View(fl_male_incarcerations)
+
+# What is the number of female incarcerations in New York by year?
+ny_female_incarcerations <- incarceration_data %>%
+  group_by(year, state) %>%
+  filter(state == "NY") %>%
+  summarize(sum(female_jail_pop), na.rm = TRUE)
+View(ny_female_incarcerations)  
+
+# What is the number of male incarcerations in New York by year?
+ny_male_incarcerations <- incarceration_data %>%
+  group_by(year, state) %>%
+  filter(state == "NY") %>%
+  summarize(sum(male_jail_pop), na.rm = TRUE)
+View(ny_male_incarcerations)
+```
+
+## Population of Prisons in the US from 1970-2018
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+plot_jail_pop_for_us <- function()  {
+  ggplot(get_year_jail_pop(), aes(x = year, y = total_prison_pop)) +
+    ggtitle("Population of Prisons (1970-2018)") + 
+    labs(x= "Year", y = "U.S. Prison Population") +
+    geom_col() 
+} 
+```
+
+The data set shows a sharp increase in incarceration, especially around the mid 1980's to 2010. This may be due to several factors, including the increase of over-policing and war on drugs. Around this time, xenophobia was at a historically high rate in the US (especially after the 9/11 attack) and caused immigrants and certain specific races to be targeted for arrests and incarceration. In the war on drugs, specifically Latin X, Black, and those who were immigrants were targeted and incarcerated at much higher rates. This contributes to the overall increase in populations in prisons because the political and social environment caused an increase of incarceration, and in disproportionate ways.
+
+## Population of Prisons by State in the US from 1970-2018
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+plot_prison_pop_by_states <- function(states) {
+  ggplot(get_prison_pop_by_states (states), aes(year, total_prison_pop_by_state, color = factor(state))) +
+    ggtitle("Increase of Prison Population by State in the US (1970-2018)") + 
+    labs(x = "Year", y = "U.S. Prison Population by State") +
+    geom_line(aes(color = state))
+}
+```
+
+The data shows the population increase of the states, California, Washington, and Oregon. All the states have an increase, similar to the total prison population increase from 1970 to 2018. This may be due to similar reasons predicted for the total prison population: the war on drugs, xenophobhia, over-policing, and systematic racial profiling of individuals by police that result in this increase of incarcerated individuals.
+
+## Continuous Data Comparing LatinX and White Populations in Prisons (Washington State from 1990-2010)
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+race_comparison_chart <- race_comp_data %>%
+  pivot_longer(cols = c("latinx_population", "white_population", "total_population"), 
+               names_to = "Race", values_to = "value") %>%
+  ggplot(mapping = aes(x = Race, y = value, fill = Race)) + geom_point() + 
+  labs(x = "year",
+       y = "Population", 
+       title = "Comparison of Jail Population between Races in Washington (1990-2010)",
+       fill = "Population",)
+```
+
+Since 1970, the incarceration rate of Americans have gone up several times over. In Washington State, we can see this population increase over 2 decades from 1990 to 2010. Concurrently, we can see that the number of LatinX individuals in prisons increases every year disproportionate to white individuals. Though the graph shows more points for white individuals than LatinX, the comparative rate at which LatinX individuals are represented in prison populations over these two decades is still more because there is a smaller LatinX population than White population in Washington. This points ot a disparity among different races in prisons: LatinX indivudals are more likely to be represented in the prison population and this trend continues to increase.
+
+## Map of LatinX Populations in Prisons in the Unted States in 2010
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+latinx_pop_data_map <- plot_usmap(
+  data = latinx_pop_data, values = "latinx_pop", color = "grey") + map_theme + 
+  scale_fill_gradient(low = "#132B43",
+                      high = "#56B1F7",
+                      space = "Lab",
+                      na.value = "grey50",
+                      guide = "colourbar",
+                      aesthetics = "fill") + 
+  labs(title = "Prison Population of LatinX Individuals in the United States, 2010", 
+       fill = "Population")
+```
+
+On a national level, LatinX individuals have been increasingly over represented in jails and prisons, with some states having a much higher concentration than others. In 2010, the data shows the highest concentration of LatinX individuals in Texas and California respectively. LatinX individuals make up about 19% of the national prison population, and around 50% of drug related incarcerations are against LatinX individuals. It is important to recognize the disparity among states as it points towards state level systemic oppression.

@@ -120,9 +120,11 @@ return()
 plot_jail_pop_for_us <- function()  {
   ggplot(get_year_jail_pop(), aes(x = year, y = total_prison_pop)) +
     ggtitle("Population of Prisons (1970-2018)") + 
-    labs(x= "Year", y = "U.S. Prison Population") +
+    labs(x= "Year", y = "U.S. Prison Population", caption = "Data shows total population in prisons") +
     geom_col() 
 } 
+
+plot_jail_pop_for_us()
 
 ## Section 4  ---- 
 #----------------------------------------------------------------------------#
@@ -152,7 +154,7 @@ get_prison_pop_by_states <- function(states) {
 plot_prison_pop_by_states <- function(states) {
   ggplot(get_prison_pop_by_states (states), aes(year, total_prison_pop_by_state, color = factor(state))) +
     ggtitle("Increase of Prison Population by State in the US (1970-2018)") + 
-    labs(x = "Year", y = "U.S. Prison Population by State") +
+    labs(x = "Year", y = "U.S. Prison Population by State", caption = "Data shows total population in prisons by state") +
     geom_line(aes(color = state))
 }
 
@@ -181,7 +183,8 @@ race_comparison_chart <- race_comp_data %>%
   labs(x = "year",
        y = "Population", 
        title = "Comparison of Jail Population between Races in Washington (1990-2010)",
-       fill = "Population",)
+       fill = "Population",
+       caption = "This graph is meant for viewers to draw a comparison between races in jail population within Washington State")
      
 #----------------------------------------------------------------------------#
 
@@ -223,7 +226,7 @@ latinx_pop_data_map <- plot_usmap(
                       guide = "colourbar",
                       aesthetics = "fill") + 
   labs(title = "Prison Population of LatinX Individuals in the United States, 2010", 
-       fill = "Population")
+       fill = "Population", caption = "The data here shows the prison population of LatinX individuals in the United States in 2010")
 
 #----------------------------------------------------------------------------#
 
